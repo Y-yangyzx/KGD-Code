@@ -1,0 +1,157 @@
+module.exports.name="hahahaha"
+module.exports.add=function(a,b){
+    return parseFloat(a)+parseFloat(b);
+}
+module.exports.sub=function(a,b){
+    return parseFloat(a)-parseFloat(b)
+}
+module.exports.mul=function(a,b){
+    return parseFloat(a)*parseFloat(b)
+}
+module.exports.div=function(a,b){
+    if(b!=0){
+        return parseFloat(a)/parseFloat(b);
+    }
+    else{
+        return "被除数不能为0";
+    }
+}
+module.exports.sur=function(a,b){
+    return parseFloat(a)%parseFloat(b);
+}
+
+
+
+
+var score = process.argv[process.argv.length-1];
+module.exports.judege = function(){
+    if(score>80){
+        return "优秀";
+    }
+    else if(score>=70){
+        return "良好";
+    }
+    else if(score>=60){
+        return "及格";
+    }
+    else{
+        return "不及格";
+    }
+}
+
+
+
+
+module.exports.game = function(){
+    var comput="";
+    var num = Math.floor(Math.random()*3);
+    if(num==0){
+        comput = "rock";
+    }
+    if(num==1){
+        comput = "scissors";
+    }
+    if(num==2){
+        comput = "paper";
+    }
+    var player = process.argv[process.argv.length-1];
+    console.log(comput);
+    if(comput==player){
+        console.log("平局");
+    }
+    else if(comput=="rock"&&player=="scissors" || comput=="scissors"&&player=="paper"|| comput=="paper"&&player=="rock"){
+        console.log("你输了！");
+    }
+    else{
+        console.log("你赢了");
+    }
+}
+
+
+
+
+// var custom = require("./calc");
+// console.log( custom.add(1,2));
+// console.log(custom.mul(1,2));
+// console.log(custom.div(3,0));
+// console.log(custom.sur(3,2));
+
+
+// const circle = require("./circle");
+// console.log(circle.di(2));
+// console.log(circle.S(3));
+// console.log(circle.C(3));
+
+// const grade = require("./grade");
+// console.log(grade.judege());
+// console.log(grade.judege(80));
+// console.log(grade.judege(79));
+// console.log(grade.judege(81));
+// console.log(process.argv[process.argv.length-1])
+
+// const stjdb = require("./stjdb");
+// stjdb.game();
+
+
+
+const string ="abc";
+const number = 1;
+const boolean = true;
+console.time("全部时间");
+console.log(string,number,boolean);
+console.time("时间");
+for(var i=0;i<10000;i++){}
+console.timeEnd("时间");
+console.timeEnd("全部时间");
+
+
+
+VUE
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form action="">
+            <p>{{counter}}</p>
+            <input type="button" value="+" @click="add()">
+            <input type="button" value="-" @click="sub()">
+        </form>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                counter: 0,
+                timer: null
+            },
+            methods: {
+                add() {
+                    clearInterval(this.timer)
+                        // var _this = this;
+                    this.timer = setInterval(() => {
+                        this.counter++
+                    }, 1000)
+                },
+                sub() {
+                    clearInterval(this.timer)
+                    this.timer = setInterval(() => {
+                        this.counter--
+                    }, 1000)
+                }
+            },
+        })
+        console.log(app.$data);
+    </script>
+</body>
+
+</html>
+
