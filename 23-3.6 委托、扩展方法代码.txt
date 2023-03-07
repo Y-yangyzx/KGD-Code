@@ -1,0 +1,154 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //委托 
+            //插件委托
+            //多播委托 
+            //匿名函数 匿名类   delegate (返回值){return 值}
+            //var obj = new{属性=属性值};  
+            //var关键字
+            //Lambda表达式
+
+            //string s = "abc";
+            //string ss = s + 1;
+            //Console.WriteLine(ss);
+            //List<int> ls = new List<int>() { 1, 2, 3, 4, 5, 6 };
+            //List<string> lstr = new List<string>() { "a", "b", "c", "d" };
+            //var obj = ls.Where(j => j > 2);
+            //var objj = lstr.Select(j=>j.Contains("a"));
+            //foreach (var item in obj)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //foreach (var item in objj)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            string name = "张三";
+            Console.WriteLine(name.SayMe());
+
+            Dog dog = new Dog("劳斯", 2, false);
+            Console.WriteLine(dog.SayInfo());
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public static class Extend
+    {
+        public static string SayMe(this string name)
+        {
+            return $"你好你好,{name}!";
+        }
+        public static string SayInfo(this Dog d)
+        {
+            string sex = d.IsDog ? "公" : "母";
+            return $"狗的名字是{d.Name},狗的年龄是{d.Age},狗的性别是{sex}";
+        }
+    }
+}
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Dog
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public bool IsDog { get; set; }
+        public void Show()
+        {
+
+        }
+        public Dog(string name,int age,bool isDog)
+        {
+            this.Name = name;
+            this.Age = age;
+            this.IsDog = isDog;
+        }
+    }
+}
+
+
+
+
+
+ #region 匿名函数和lambda表达式对比 体会Lambda表达式简化书写的好处！！！
+            List<int> ls = new List<int>() { 1, 2, 3, 4, 5, 6 };
+            //Lambda表达式的方式
+            //体会Lambda表达式 本质就是匿名函数 
+            //var lss=  ls.Where(j=>j>3);
+            //foreach (var item in lss)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            //匿名方法的方式
+            NewDelegate newDelegate = delegate (List<int> list)
+            {
+                List<int> newList = new List<int>() { }; 
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i] > 3)
+                    {
+                        newList.Add(list[i]);
+                    } 
+                }
+                return newList;
+            };
+            //调用
+            foreach (var item in newDelegate(ls))
+            {
+                //Console.WriteLine(item);
+            }
+            #endregion
+
+
+            #region C#的扩展方法 
+            int a = 3;
+            //int aa= Extend.numTwo(a);
+            //Console.WriteLine(aa);
+            Console.WriteLine(a.numTwo(3.14,true));
+
+            Dog dog = new Dog("劳斯",2,false);
+            //dog.Show();
+            //dog.SayInfo();
+            #endregion
+
+
+            Console.WriteLine("*********************************");
+            int[] strArr = new int[3];
+            Console.WriteLine(strArr);
+            Console.ReadKey();
