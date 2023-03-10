@@ -1,0 +1,134 @@
+PHP:
+一、
+//一次性判断多个学生成绩  点击按钮同时提示10个等级  
+//中间用、分隔
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <p>请输入十个成绩，中间用、分隔：</p>
+        <p><input type="text" name="score"></p>
+        <p><input type="submit" name="btn"></p>
+    </form>
+</body>
+</html>
+
+
+
+二、
+<?php
+    if(isset($_POST["btn"])){
+        $str = $_POST["score"];
+        //返回的是一个数组
+        $score = explode("、",$str);
+        // var_dump($score);   
+    $index = 1;
+    for($i=0;$i<count($score);$i++){
+        if($score[$i]>=90){
+            echo "第".$index."个学生评判等级是：优秀"." "."<br>";
+        }
+        else if($score[$i]>=70){
+            echo "第".$index."个学生评判等级是：良好"." "."<br>";
+        }
+        else if($score[$i]>=60){
+            echo "第".$index."个学生评判等级是：及格"." "."<br>";
+        }
+        else{
+            echo "第".$index."个学生评判等级是：不及格"." "."<br>";
+        }
+        $index++;
+    }
+}
+?>
+
+
+//输出九九乘法表带表格式
+<style>
+    td{
+        border:1px solid black;
+    }
+</style>
+<?php
+    echo "<table>";
+    echo "<tr>";
+    for($i=1;$i<=9;$i++){
+        for($j=1;$j<=$i;$j++){
+            echo "<td>";
+            echo $j."*".$i." "."=".($i*$j);
+            echo "</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
+?>
+
+
+三、
+//三角形
+<?php
+    for($i=1;$i<=5;$i++){   
+        for($k=1;$k<=5-$i;$k++){
+            echo "&nbsp";    
+        } 
+        for($j=1;$j<=2*$i-1;$j++){
+            echo "*";
+        } 
+        echo "<br>";
+    }
+?>
+
+
+
+
+C#
+一、
+//params可变参数：
+            //变量越少越好  把数组中的数字直接当做参数传递过去 把那几个数字都当成参数数组中的元素
+            //1、基于什么需求产生的：让你求任意长度数组的最大值 你怎么实现？
+            //2、适用条件：传递数组参数（1.减少一个变量的定义 2.传递任意长度的数组）
+            //3、举的例子：见下面
+            //习题：求任意数组长度的最大值（整数类型的）
+            int[] arrGrade = {100,95,96,97,93 };
+            Test("张小明",100,20,50);
+ public static void Test(string name,params int[] grade)
+        {
+            int sum = 0;
+            for (int i = 0; i < grade.Length; i++)
+            {
+                sum += grade[i];
+            }
+            Console.WriteLine($"我的名字是：{name},我的总成绩是：{sum}");
+        }
+
+二、值类型、引用类型
+在内存中的区别  栈  推
+值传递和引用传递
+
+
+三、
+作用域问题
+被调用者想得到调用者的值：1）传参  2）使用静态字段模拟全局变量
+调用者想得到被调用者的值：return返回
+
+//n是局部变量
+类{
+            int n = 5;
+            int res = T();
+            Console.WriteLine(res);
+            Console.ReadKey();
+}
+public static int T()
+        {
+            n = n + 5;
+            return n;
+        }
+
+
+
+
