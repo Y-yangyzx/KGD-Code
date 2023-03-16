@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件通信-父传子练习</title>
+</head>
+<body>
+    <div id='app'>
+         <cpn :ctitle="title" :cmessage="message"></cpn>
+    </div>
+      
+      
+      <template id="tmp">
+        <div>
+            <h2>{{ctitle}}</h2>
+            <p>{{cmessage}}</p>
+        </div>
+      </template>
+     <script src='../vue.js'></script>
+    <script>
+        const cpn={
+            template:"#tmp",
+            data(){
+                return{
+                    // title:"我是标题",
+                    // message:"他真的很不错，但是不教我"
+                }
+            },
+            //父传子  让子组件对象中的变量动态绑定全局变量中的数据
+            props:{
+                ctitle:{
+                    type:String,
+                    default:"aaaaaaa"
+                },
+                cmessage:String
+            }
+        }
+
+
+    //相当于父组件   root组件
+    const app = new Vue({
+    el: '#app',
+    data: {
+      title:"我是标题",
+      message:"真的很不错"
+    },
+    methods: {
+     
+    },
+    components:{
+        cpn
+    }
+    })
+    </script>
+</body>
+</html>

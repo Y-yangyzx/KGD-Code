@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <cpn v-show="!isShow"></cpn>
+    </div>
+
+
+    <template id="cpn">
+        <div>
+            <p>{{message}}</p>
+            <!-- 这个isShow在子组件模板中
+                 会去这个作用域去寻找相应的变量
+            -->
+            <p v-show="isShow">666</p>
+        </div>
+    </template>
+
+    <script src='../vue.js'></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                isShow:false
+            },
+            methods: {
+
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data(){
+                        return{
+                            message:"我是模板中可以使用的的内容！",
+                            isShow:true
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

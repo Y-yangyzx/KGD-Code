@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+       <cpn :ctitle="title"></cpn>
+    </div>
+
+
+    <template id="cpn">
+        <div>
+            <h1>{{ctitle}}</h1>
+            <p></p>
+        </div>
+    </template >
+    <script src='../vue.js'></script>
+    <script>
+
+        //这样注册了一个全局组件
+        const cpn = {
+            template:'#cpn',
+            //把'cbooks'看成是一个变量
+            // props:['ctitle'],
+            props:{
+                // 类型的限制
+                // ctitle:String
+                
+                ctitle:{
+                    // 提供更多的内容  比如默认值
+                    type:String,
+                    //如果在cpn中没有传值就会显示默认值
+                    default:"aaaaaa",
+                    required:true
+                }
+            },
+            data(){
+                return {
+                    // title:"666"
+                }
+            },
+
+        }
+        //可以看成root组件  根组件最大的一层
+        const app = new Vue({
+            el: '#app',
+            data: {
+                title:"父组件中的内容传递到子组件中",
+                message:"",
+                books:[]
+            },
+            methods: {
+
+            },
+            components: {
+                // 对象增强写法ES6
+                cpn
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- <cpn2></cpn2> -->
+        <cpn111></cpn111>
+    </div>
+
+
+    <template id="cpn">
+        <div>我是模板哈哈哈哈
+            <p>fjaksljgkadshadgjsiorgjaeio</p>
+            <p>jgadklsjgklklcfvmbrklrjgaeiorhj</p>
+        </div>
+    </template>
+    <script src='../vue.js'></script>
+    <script>
+        //全局组件模板语法糖写法
+        // Vue.component("cpn2",{
+        //     template:`<div>
+        //                 <h2>我是标题22222</h2>
+        //                 <p>你说的都对，我不和你瞎掰扯！</p>
+        //                 </div>`
+        // })
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+            components: {
+                // cpn1:{
+                //     //局部组件语法糖写法
+                //     template:`<div>
+                //         <h2>我是标题</h2>
+                //         <p>你说的都对，我不和你瞎掰扯！</p>
+                //         </div>`
+                // }
+                'cpn111': {
+                    template: "#cpn"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

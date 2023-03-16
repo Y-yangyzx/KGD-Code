@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <cpn><button>按钮</button></cpn>
+        <cpn></cpn>
+        <cpn>
+           <p><i>插槽的作用</i></p>
+            <span>多行替换</span>
+            <p>奥利给！！！</p>
+            <p>测试我的新插件好不好用</p>
+        </cpn>
+        <cpn><a href="#">我是链接</a></cpn> 
+        <cpn><button>按钮</button></cpn>
+        <p>新插件真好用</p>
+        <a href="">66666</a>
+    </div>
+
+
+<template id="cpn">
+    <div>
+        <p>{{message}}</p>
+        <p>也可以直接写在这里，这种方式是写死的不好！</p>
+        <!-- 写一个插槽  写在slot标签中的内容就是默认值-->
+        <slot><button>按钮</button></slot>
+    </div>
+</template>
+    <script src='../vue.js'></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+            components:{
+                cpn:{
+                    template:'#cpn',
+                    data(){
+                        return{
+                         message:`组件内部不能直接访问Vue实例中的数据 
+                                  在组件对象中有一个data()方法中  存放
+                                  组件对象中模板数据的地方
+                         `   
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

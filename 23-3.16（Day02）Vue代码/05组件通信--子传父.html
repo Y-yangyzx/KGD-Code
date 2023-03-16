@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- 调用组件 -->
+        <cpn @itemclick="cpnclick"></cpn>
+    </div>
+
+
+
+    <template id="cpn">
+        <div>
+            <!-- 监听点击   监听点击事件-->
+            <button v-for="item in categories" @click="btnClick(item)">
+                {{item.name}}
+            </button>
+        </div>
+    </template>
+    <script src='../vue.js'></script>
+    <script>
+        // 子组件
+        const cpn = {
+            template:'#cpn',
+            // 在子组件中想要使用变量需要在data方法中定义
+            data(){
+                return{
+                    //子组件中的参数
+                    categories:[
+                        {id:"aaa",name:'热门推荐'},
+                        {id:"bbb",name:'手机数码'},
+                        {id:"ccc",name:'家用家电'},
+                        {id:"ddd",name:'电脑公办'},
+                    ]
+                }
+            },
+            methods:{
+                // 按钮点击事件方法
+                btnClick(item){
+                //发射事件  自定义事件名字  自定义事件参数
+                    this.$emit('itemclick',item)
+                }
+            }
+        }
+
+
+        // 父组件
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                cpnclick(item){
+                    console.log('cpnclick',item);
+                }
+            },
+            components:{
+                cpn
+            }
+        })
+    </script>
+</body>
+
+</html>

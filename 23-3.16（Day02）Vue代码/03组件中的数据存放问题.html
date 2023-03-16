@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <cpn1></cpn1>
+    </div>
+      
+      
+    <template id="cpn">
+        <div>
+            <!-- 组件中的数据是写死的  不好 -->
+            <h2>{{title}}</h2>
+            <p>{{message}}</p>
+            <p>dkghjajkw复盘和反思！！！</p>
+        </div>
+    </template>
+
+    <script src='../vue.js'></script>
+    <script>
+    Vue.component('cpn1',{
+        template:"#cpn",
+        data(){
+           return{
+            title:"我是标题",
+            message:"我是内容"
+           }
+        }
+    })
+    const app = new Vue({
+    el: '#app',
+    data: {
+        
+    },
+    methods: {
+     
+    },
+    })
+    </script>
+</body>
+</html>
