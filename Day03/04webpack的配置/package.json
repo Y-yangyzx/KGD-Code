@@ -1,0 +1,19 @@
+{
+  "name": "meetpackage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "zxy",
+  "license": "ISC",
+  "dependencies": {
+    "style-loader": "^3.3.2",
+    "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^2.0.2"
+  }
+}
