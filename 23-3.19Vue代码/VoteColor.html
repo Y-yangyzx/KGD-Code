@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            margin: 30px;
+        }
+        
+        .box {
+            width: 300px;
+            height: 30px;
+            background-color: grey;
+            position: relative;
+        }
+        
+        .lbox {
+            /* width: 20px; */
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="box">
+            <div class="lbox" :style="{width:dwidth+'px'}"></div>
+        </div>
+        <p>得票数：{{counter}}</p>
+        <form action="">
+            <input type="button" value="投票" @click="Vote()">
+            <input type="button" value="撤回" @click="Recall()">
+        </form>
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                dwidth: 0
+
+            },
+            methods: {
+                Vote() {
+                    if (this.dwidth < 300) {
+                        this.dwidth += 20;
+                        this.counter++;
+                    }
+
+                },
+                Recall() {
+                    if (this.dwidth > 0) {
+                        this.dwidth -= 20;
+                        this.counter--;
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

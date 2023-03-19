@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            color: red;
+        }
+        
+        .two {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 动态监听类的变化 -->
+        <p :class="{'one':isActive,'two':isCurrent}">{{message}}</p>
+        <!-- 动态监听按钮事件 -->
+        <input type="submit" value="点击变色" @click="ChangeCBtn()">
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "我是内容！",
+                isActive: true,
+                isCurrent: true
+            },
+            methods: {
+                // ChangeClass() {
+                //     return {
+                //         one: this.isActive,
+                //         two: this.isCurrent
+                //     }
+                // },
+                ChangeCBtn() {
+                    this.isActive = !this.isActive,
+                        this.isCurrent = !this.isCurrent
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

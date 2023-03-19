@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">{{message}}
+        <form action="">
+            <textarea name="" id="" cols="30" rows="10" v-model="checkMessage"></textarea>{{checkMessage}}
+        </form>
+        <form action="">
+            <input type="radio" value="男" v-model="sex">男
+            <input type="radio" value="女" v-model="sex">女 选择的性别：{{sex}}
+        </form>
+        <form action="">
+            <input type="checkbox" value="苹果" v-model="cheooses">苹果
+            <input type="checkbox" value="香蕉" v-model="cheooses">香蕉
+            <input type="checkbox" value="山竹" v-model="cheooses">山竹
+            <input type="checkbox" value="西瓜" v-model="cheooses">西瓜
+            <input type="checkbox" value="葡萄" v-model="cheooses">葡萄{{cheooses}}
+        </form>
+        <form action="">
+            <input type="checkbox" v-model="isAgree">同意协议{{isAgree}}
+            <button type="submit" :disabled="!isAgree">下一步</button>
+        </form>
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "单行文本框",
+                checkMessage: "多行文本框",
+                sex: "男",
+                cheooses: [],
+                isAgree: false
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>招新社</h2>
+        <p>姓名：<input type="text" v-model.lazy="name">{{name}}</p>
+        <p>年龄：<input type="text" v-model="ageContent"></p>
+        <p>年龄：<input type="radio" value="男" v-model="sex">男
+            <input type="radio" value="女" v-model="sex">女</p>
+        <p>
+            <select v-model="grade">
+                <option value="大一">大一</option>
+                <option value="大二">大二</option>
+                <option value="大三">大三</option>
+            </select>
+        </p>
+        <p>
+            <input type="checkbox" value="篮球" v-model="choooses">篮球
+            <input type="checkbox" value="足球" v-model="choooses">足球
+            <input type="checkbox" value="乒乓球" v-model="choooses">乒乓球
+            <input type="checkbox" value="羽毛球" v-model="choooses">羽毛球
+        </p>
+        <p>
+            <input type="checkbox" v-model="isAgree">同意本网站协议
+            <p><input type="button" value="提交" :disabled="!isAgree" @click="Refer()"></p>
+        </p>
+        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+    </div>
+
+
+    <script src="./js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                name: "",
+                ageContent: "",
+                sex: "",
+                grade: "",
+                choooses: [],
+                isAgree: false,
+                message: ""
+            },
+            methods: {
+                Refer() {
+                    this.message = '我叫' + this.name + ',年龄' + this.ageContent + ',性别:' + this.sex + ",年级" + this.grade + ',爱好' +
+                        this.choooses + '。';
+                }
+                // },
+                // M() {
+                //     for (let value in this.choooses) {
+                //         console.log(value);
+                //     }
+                //     for (let value of this.choooses) {
+                //         console.log(value);
+                //     }
+                // }
+            },
+        })
+    </script>
+</body>
+
+</html>
