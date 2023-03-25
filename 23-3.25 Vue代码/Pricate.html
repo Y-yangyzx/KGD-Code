@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #app {
+            margin: 30px;
+        }
+        
+        .box {
+            width: 300px;
+            height: 30px;
+            position: relative;
+            background-color: blanchedalmond;
+        }
+        
+        h2 {
+            /* width: 30px; */
+            height: 30px;
+            position: absolute;
+            background-color: red;
+            left: 0;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="box">
+            <h2 :style="{width:dwidth+'px'}"></h2>
+        </div>
+        <p>当前票数是：{{counter}}</p>
+        <div>
+            <input type="submit" value="投票" @click="vote()">
+            <input type="submit" value="减少" @click="Recall()">
+        </div>
+    </div>
+
+
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                dwidth: 0
+            },
+            methods: {
+                vote() {
+                    if (this.dwidth < 300) {
+                        this.counter++,
+                            this.dwidth += 30
+                    }
+                },
+                Recall() {
+                    if (this.dwidth > 0) {
+                        this.counter--,
+                            this.dwidth -= 30
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

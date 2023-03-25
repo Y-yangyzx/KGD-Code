@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 130px;
+            height: 130px;
+            background-color: brown;
+            padding: 20px;
+        }
+        
+        .lbox {
+            width: 50px;
+            height: 50px;
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- .stop修饰符 -->
+        <div class="box" @click="outside()">
+            <!-- <div class="lbox" @click.stop="inside()"></div>   阻止冒泡 -->
+            <div class="lbox" @click="inside()"></div>
+        </div>
+        <br>
+        <!-- .prevent修饰符 -->
+        <a href="http://www.baidu.com" @click.prevent="inside()">百度一下</a>
+        <br>
+        <div class="box" @click.capture="outside()">
+            <div class="lbox" @click="inside()"></div>
+        </div>
+        <!-- .self修饰符 -->
+        <br>
+        <div class="box" @click.self="outside()">
+            <div class="lbox" @click="inside()"></div>
+        </div>
+        <!-- .once修饰符 -->
+        <br>
+        <div class="box" @click.once="outside()">
+            <div class="lbox" @click="inside()"></div>
+        </div>
+
+    </div>
+    <script src='./vue.js'></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                inside() {
+                    alert("内层被点击");
+                },
+                outside() {
+                    alert("外层被点击");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

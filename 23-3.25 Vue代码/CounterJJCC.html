@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="num1">
+        <select name="" id="" v-model="sign">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input type="text" v-model.number="num2">
+        <input type="button" value="=" @click="countBtn()">
+        <input type="text" v-model="res">
+    </div>
+
+
+    <script src="./vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                num1: '',
+                num2: '',
+                res: '',
+                sign: ''
+            },
+            methods: {
+                countBtn() {
+                    switch (this.sign) {
+                        case '+':
+                            this.res = this.num1 + this.num2;
+                            break;
+                        case '-':
+                            this.res = this.num1 - this.num2;
+                            break;
+                        case '*':
+                            this.res = this.num1 * this.num2;
+                            break;
+                        case '/':
+                            if (this.num2 == 0) {
+                                alert("除数不能为0");
+                                this.num2 = this.num1 = '';
+                            } else {
+                                this.res = this.num1 / this.num2;
+                                break;
+                            }
+
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
