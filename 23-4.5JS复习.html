@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <style>
+        img{
+            width: 300px;
+            height: 300px;
+        }
+    </style> -->
+<!-- <ul id="big">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<ul></ul>
+<ul></ul> -->
+    <!-- <button>点击我显示时间：</button>
+    <div>当前时间：</div> -->
+
+
+
+    <!-- <div>
+        <img src="" alt="">
+    </div>
+    <p></p> -->
+
+    <script>
+//DOM操作
+// var oul = document.getElementById('big');
+// var oull = document.getElementsByTagName('ul')
+// var oli = document.getElementsByTagName('li')
+// var oliul = oull[0].getElementsByTagName('li')
+// // console.log(oul);
+// console.log(oull);
+// console.log(oli);
+// console.log(oliul);
+
+
+        //innerText修改元素内容
+        // var obtn = document.querySelector('button');
+        // var odiv = document.querySelector('div');
+        // obtn.onclick = function(){
+        //     odiv.innerText = getDate();
+        // }
+        //当前时间函数
+        // function getDate(){
+        //     var date= new Date();
+        //     var year = date.getFullYear();
+        //     var month = date.getMonth()+1; //返回的是0-11
+        //     var dates = date.getDate();
+        //     var arrWeek =['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        //     var day = date.getDay(); //返回的是0-6
+        //     var Hour = date.getHours();
+        //     var min = date.getMinutes();
+        //     var sec = date.getSeconds();
+        //     return `今天是${year}年，${month}月${dates}日，${arrWeek[day]} ${Hour}:${min}:${sec}`;
+        // }
+
+
+        //根据不同时间提示不同问候语
+        //h<12   h<18   else
+        // var oimg = document.querySelector('img');
+        // var op = document.querySelector('p');
+        // var date = new Date();
+        // var H = date.getHours();
+        // if(H<12){
+        //     oimg.src = './img/one.jpg';
+        //     op.innerHTML = '上午好！'
+        // }
+        // else if (H<18){
+        //     oimg.src = './img/two.jpg';
+        //     op.innerHTML = '下午好！'
+        // }
+        // else{
+        //     oimg.src = './img/three.jpg';
+        //     op.innerHTML = '晚上好！'
+        // }
+
+
+        // var userName = prompt('请输入用户信息：');
+        // alert(userName);
+
+        // var birthYear = prompt('请输入您出生的年份：');
+        // var age = 2023 - birthYear;  //隐式转换了
+        // alert(age);
+
+    //    var arr = [1,53,745,234,45,86,945,34,6,896,34,5,8,435,7];
+    //    var newArr =[];
+    //    for(let i =0;i<arr.length;i++){
+    //         if(arr[i]>100){
+    //             newArr[newArr.length] = arr[i];
+    //         }
+    //    }
+    //    console.log(newArr);
+
+    
+    //翻转元素
+    // var oldArr = [1,4,6,8,5,7];
+    // var newArr = [];
+    // for(let i =oldArr.length-1;i>=0;i--){
+    //     newArr[newArr.length] = oldArr[i];
+    // }
+    // console.log(newArr);
+
+
+    // //冒泡排序
+    // var arr = [2,3,5,1,4];
+    // //趟数
+    // for(let i =0;i<arr.length-1;i++){
+    //     //交换次数 规律：arr.length-i-1
+    //     for(let j = 0;j<arr.length-i-1;j++){
+    //         if(arr[j]<arr[j+1]){
+    //             var tmp = arr[j];
+    //             arr[j] = arr[j+1];
+    //             arr[j+1] = tmp;
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+
+    // function getMax(){
+    //     var max = arguments[0];
+    //     for(var i =0;i<arguments.length;i++){
+    //         if(arguments[i]>max){
+    //             max = arguments[i];
+    //         }
+    //     }
+    //     return max;
+    // }
+    // console.log(getMax(1,2,2,3,4,5,64));
+
+
+    //利用构造函数创建对象 可以创建多个对象
+    // function Start(sname,sage,sgender){
+    //     this.name = sname;
+    //     this.age = sage
+    //     this.gender  = sgender;
+    //     this.sing = function(sang){
+    //         console.log(sang);
+    //     }
+    // }
+    // var ldh = new Start('刘德华',52,'男');
+    // console.log(ldh.name);
+    // console.log(ldh.age);
+    // console.log(ldh.gender);
+    // ldh.sing('冰雨');
+
+
+    //利用对象封装自己的数学对象  里面有PI  max和min方法
+    // var myMath = {
+    //     PI:3.1415926535,
+    //     max:function(){
+    //         var max = arguments[0];
+    //         for(var i =1;i<arguments.length;i++){
+    //             if(arguments[i]>max){
+    //                 max = arguments[i];
+    //             }
+    //         }
+    //         return max;
+    //     },
+    //     min:function(){
+    //         var min = arguments[0];
+    //         for(var i =1;i<arguments.length;i++){
+    //             if(arguments[i]<min){
+    //                 min = arguments[i];
+    //             }
+    //         }
+    //         return min;
+    //     }
+    // }
+    // console.log(myMath.min(1,2,3));
+
+    //猜数字游戏
+    // function getRandom(min,max){
+    //     return Math.floor(Math.random()*(max-min+1))+min;
+    // }
+    // var ranNum = getRandom(1,10);
+    // var count =0;
+    // while(true){
+    //     var num = prompt('请猜数字：输入一个1-10之间的数字');
+    //     if(num>ranNum){
+    //         alert('猜大了');
+    //     }
+    //     else if(num<ranNum){
+    //         alert('猜小了');
+    //     }
+    //     else{
+    //         alert('恭喜你，猜对了！');
+    //         break;
+    //     }
+    // }
+
+    
+    //倒计时案例：
+    //思路：输入时间减去现在的时间就是剩余的时间  不能直接相减 用时间戳
+    // function timeDown(time){
+    //     var nowTime = +new Date();//获取当前时间的总毫秒数
+    //     var inputTime = +new Date(time);//输入时间总毫秒数
+    //     var times = (inputTime - nowTime)/1000;//二者相差的时间 单位：秒
+    //     var d = parseInt(times/60/60/24);
+    //     var h = parseInt(times/60/60%24);
+    //     var m = parseInt(times/60%60);
+    //     var s = parseInt(times%60);
+    //     return d+'天'+h+'时'+m+'分'+s+'秒';
+    // }
+    // console.log(timeDown('2023-4-3 20:00:00')); 
+
+
+
+    //数组去重案例：
+    // function unique(arr){
+    //     var newArr = [];
+    //     for (var i =0;i<arr.length;i++){
+    //         if(newArr.indexOf(arr[i])===-1){
+    //             newArr.push(arr[i]);
+    //         }
+    //     }
+    //     return newArr;
+    // }
+    // var arr = ['a','b','c','d','a','b','e','f'];
+    // console.log(unique(arr));
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
