@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id='app'>
+        <p>{{name}}</p>
+        <!-- 使用组件 -->
+        
+        <school></school>
+        <student></student>
+        <student></student>
+        <student></student>
+    </div>
+
+
+    <script src='./vue.js'></script>
+    <script>
+        //注册组件
+        const school = Vue.extend({
+            template:`
+            <div>
+                <p>{{name}}</p>    
+                <p>{{age}}</p>  
+                <button @click='meg()'>666</button> 
+            </div>
+            `,
+            data(){
+                return{
+                    name:'lisi',
+                    age:19
+                }
+            },
+            methods:{
+                meg(){
+                    console.log('哈哈哈');
+                }
+            }
+        })
+        const student = Vue.extend({
+            template:`
+            <div>
+                <p>{{name}}</p>    
+            </div>
+            `,
+            data(){
+                return{
+                    name:'wangwu'
+                }
+            }
+        })
+
+        // 所有组件的大哥
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name:'zs',
+                age:18,
+                sex:'男'
+            },
+            // 注册组件
+            components:{
+                school,
+                student
+            }            
+        })
+    </script>
+</body>
+
+</html>
