@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            width: 24px;
+            top: 8px;
+            right: 3px;
+        } */
+        /* .box{
+            position: relative;
+            width: 65px;
+            margin: 100px auto;
+        }
+        .box img{
+            width: 50px;
+            height: 70px;
+        }
+        #del{
+            position: absolute;
+            top: -6px;
+            left: -12px;
+        } */
+
+
+        /* .change {
+            width: 300px;
+            background-color: red;
+            font-size: 40px;
+            margin-top: 50px;
+        } */
+
+        /* .messsage{
+            width: 150px;
+        }
+        .wrong{
+            color: red;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        .right{
+            color:greenyellow;
+            font-size: 15px;
+        } */
+        /* body {
+            background-image: url(./img/one.jpg);
+        }
+
+        .baidu {
+            width: 650px;
+            margin: 100px auto;
+        }
+
+        .baidu img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .baidu li {
+            list-style: none;
+            float: left;
+        } */
+
+        table{
+            margin: 150px auto;
+        }
+        th{
+            background-color: cadetblue;
+        }
+        .bg{
+            background-color: palegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <input type="text" value="我是输入框中的内容">
+    <button>按钮</button> -->
+
+    <!-- 明文显示与否案例 -->
+    <!-- <div class="box">
+        <label for="">
+            <img src="./img/one.jpg" alt="">
+        </label>
+        <input type="password">
+    </div> -->
+
+
+
+    <!-- 关闭二维码案例 -->
+    <!-- <div class="box">
+        <img src="./img/three.jpg" alt="">
+        <i id="del">x</i>
+    </div> -->
+
+
+    <!-- 获得焦点  失去焦点 -->
+    <!-- <input type="text" value="手机"> -->
+
+    <!-- <div>哈哈哈</div> -->
+
+    <!-- 
+     <div class="box">
+        <input type="password" name="" id="">
+        <i class="messsage">请输入6-16位密码</i>
+    </div> -->
+
+    <!-- <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button> -->
+
+
+    <!-- 换肤效果 -->
+    <!-- <ul class="baidu">
+        <li><img src="./img/one.jpg" alt=""></li>
+        <li><img src="./img/two.jpg" alt=""></li>
+        <li><img src="./img/three.jpg" alt=""></li>
+        <li><img src="./img/four.jpg" alt=""></li>
+    </ul> -->
+
+
+<!-- <table>
+    <thead>
+        <th>一</th>
+        <th>二</th>
+        <th>三</th>
+        <th>四</th>
+        <th>五</th>
+        <th>六</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="allCB">
+            </th>
+            <th>a</th>
+            <th>b</th>
+            <th>c</th>
+            <th>d</th>
+        </tr>
+    </thead>
+        <tbody id="tdy">
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="" id="downCB">
+            </td>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+            <td>d</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="" id="downCB">
+            </td>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+            <td>d</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="" id="downCB">
+            </td>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+            <td>d</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="" id="" id="downCB">
+            </td>
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+            <td>d</td>
+        </tr>
+    </tbody>
+    </table>
+    <script>
+        var allCB= document.getElementById('allCB');
+        var downCBs = document.getElementById('tdy').getElementsByTagName('input');
+        console.log(downCBs);
+        //头部复选框
+        allCB.onclick=function(){
+            for(let i =0;i<downCBs.length;i++){
+                downCBs[i].checked = this.checked;
+            }
+        }
+        //下面复选框   flag控制全选按钮是否被选中
+        for(let i =0;i<downCBs.length;i++){
+            downCBs[i].onclick = function(){
+                //当下面的按钮又被点击的 就循环遍历所有按钮 如果其中有（存在）没有选中的 
+                //全选按钮就不能被选中
+                var flag = true;
+                for(let j =0;j<downCBs.length;j++){
+                    if(!downCBs[j].checked){
+                        flag = false;
+                        break;
+                    }
+                }
+                allCB.checked = flag;
+            }
+        }
+
+
+
+        //隔行变色
+        // var trs = document.querySelector('tbody').querySelectorAll('tr');
+        // for(let i =0;i<trs.length;i++){
+        //     trs[i].onmouseover=function(){
+        //         trs[i].className='bg';
+        //     }
+        //     trs[i].onmouseout=function(){
+        //         trs[i].className='';
+        //     }
+        // }
+        //换肤效果
+        // var oimgs = document.querySelectorAll('img');
+        // for (let i = 0; i < oimgs.length; i++) {
+        //     oimgs[i].onclick = function () {
+        //         document.body.style.backgroundImage = 'url(' + this.src + ')';
+        //     }
+        // }
+
+
+    // var btns = document.getElementsByTagName('button');
+    // for(let i=0;i<btns.length;i++){
+    //     btns[i].onclick=function(){
+    //         for(let j=0;j<btns.length;j++){
+    //             btns[j].style.backgroundColor='';
+    //         }
+    //         btns[i].style.backgroundColor='pink';
+    //     }
+    // }
+
+
+
+
+
+
+
+        // var pwd = document.querySelector('input');
+        // var message = document.querySelector('.messsage');
+        // pwd.onblur=function(){
+        //     if(pwd.value.length<6 || pwd.value.length>16){
+        //         message.className='messsage wrong';
+        //         message.innerHTML='您输入的位数不正确！';
+        //     }else{
+        //         message.className='message right';
+        //         message.innerHTML='您输入的正确！'
+        //     }
+        // }
+
+
+
+        // var oinput = document.querySelector('input');
+        // oinput.value = '修改后的内容！';
+        // var btn = document.querySelector('button')
+        // btn.onclick = function(){
+        //     oinput.value = '被点击了'
+        //     btn.disabled = true;
+        // }
+
+
+
+        //显示隐藏密码明文显示  利用一个变量flag
+        // var oimg = document.querySelector('img');
+        // var pwd = document.querySelector('input');
+        // var flag = true;
+        // oimg.onclick = function () {
+        //     if (flag) {
+        //         oimg.src = './img/two.jpg';
+        //         pwd.type = 'text';
+        //         flag = false;
+        //     }
+        //     else {
+        //         oimg.src = './img/one.jpg';
+        //         pwd.type = 'password';
+        //         flag = true;
+        //     }
+        // }
+
+
+        //点击x关闭二维码图片
+        // var obox= document.querySelector('.box')
+        // var ox = document.querySelector('#del');
+        // ox.onclick=function(){
+        //     obox.style.display='none';
+        // }
+
+        //获取焦点  失去焦点案例
+        // var text = document.querySelector('input');
+        // text.onfocus = function(){
+        //     if(text.value = '手机'){
+        //         text.value ='';
+        //     }
+        //     text.style.color='#333';
+        // }
+        // text.onblur= function(){
+        //     if(text.value===''){
+        //         this.value='手机';
+        //     }
+        //     text.style.color='#999';
+        // }
+
+
+        // var odiv = document.querySelector('div');
+        // odiv.onclick = function () {
+        //     odiv.className = 'change';
+        // }
+    </script>
+</body>
+
+</html>

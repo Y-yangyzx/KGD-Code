@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        .nav>li{
+            width: 100px;
+            float: left;
+            text-align: center;
+        }
+        .nav ul{
+            display: none;
+        }
+        .nav ul li{
+            border: 1px solid salmon;
+        }
+        .nav>li a:hover{
+            background-color: rgb(15, 124, 124);            
+        }
+        .nav>li a{
+            display: block;
+            width: 100px;
+        }
+        .nav>li ul li:hover{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <script>
+        // 1.获取元素
+        var nav = document.querySelector('.nav');
+        var lis = nav.children;//得到ul下第一层的四个小li
+        // 2.循环注册事件
+        for(var i=0;i<lis.length;i++){
+            lis[i].onmouseover = function(){
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function(){
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
