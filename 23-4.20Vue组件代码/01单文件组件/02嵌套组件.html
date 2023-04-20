@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件的嵌套</title>
+</head>
+<body>
+    <div id='app'>
+        <!-- 组件创建注册完毕之后就可使用了 -->
+        <!-- <school>
+            <student></student> 
+        </school>
+        
+       <hello></hello> -->
+       <app></app>
+
+    </div>
+
+ 
+    <script src='../vue.js'></script>
+    <script>
+        // 创建一个学生组件
+        const student = {
+            template:`
+            <div>
+                <p>学生姓名：{{name}}</p> 
+                <p>学生年龄：{{age}}</p>   
+            </div>
+            `,
+            data(){
+                return {
+                    name:'张飒',
+                    age:18
+                }
+            }
+        }
+
+        const hello = {
+            template:`
+            <div>
+                <p>学生姓名：{{name}}</p> 
+            </div>
+            `,
+            data(){
+                return{
+                    name:'sss'
+                }
+            }
+        }
+
+
+        // 创建一个学校组件
+        const school = {
+            template:`
+            <div>
+                <p>学校名称：{{name}}</p>    
+                <p>学校地址：{{address}}</p>  
+                <student></student>  
+            </div>
+            `,
+            data(){
+                return {
+                    name:'尚硅谷',
+                    address:'北京'
+                }
+            },
+            components:{
+                // 注册一个子组件
+                student
+            }
+        }
+
+
+        // 一人之下，万人之上的组件app组件
+        const app = {
+            template:`
+            <div>
+                <p>学校名称：{{msg}}</p>    
+                <school></school>
+                <hello></hello>
+            </div>
+            `,
+            data(){
+                return{
+                    msg:'我是一人之下，万人之上的组件'
+                }
+            },
+            components:{
+                school,
+                hello
+            }
+        }
+
+        
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+            components:{
+                // 简写形式
+               app
+            }
+        })
+    </script>
+</body>
+
+</html>
